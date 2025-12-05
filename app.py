@@ -26,7 +26,6 @@ def load_resume() -> dict:
     return {}
 
 
-
 def build_avatar_tag(use_video=False) -> str:
     video_path = IMG_DIR / "video.mp4"
     img_path = IMG_DIR / "pic1.jpg"
@@ -384,6 +383,7 @@ def main():
     html_content = html_content.replace("{{IMG_TAG}}", avatar_tag)
     html_content = html_content.replace("{{NAME}}", data.get("name", ""))
     html_content = html_content.replace("{{TITLE}}", data.get("title", ""))
+    
     raw_phone = contact.get("phone", "")          # "+358 44 519 5357"
     phone_e164 = "".join(ch for ch in raw_phone if ch.isdigit())  # "358445195357"
 
@@ -421,7 +421,7 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    components.html(html_content, height=860, scrolling=False)
+    components.html(html_content, height=0, scrolling=True)
 
 
 if __name__ == "__main__":
