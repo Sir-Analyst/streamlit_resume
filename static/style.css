@@ -1,0 +1,857 @@
+/* 
+Algorithm (CSS):
+1) Reset default body margin/padding to remove white gaps.
+2) Make body use full viewport size and center a single frame.
+3) Create a full-page frame that fills the viewport and has:
+   - No internal padding
+   - 10px solid border
+   - Rounded corners
+   - Gradient background like original.
+4) Use a neutral background color to see the frame clearly.
+*/
+
+/* ======================
+   Base + Color Palette
+   ====================== */
+:root {
+  --bg-outer: #020617;        /* very dark navy background */
+  --card-bg: #fcfafa;         /* main resume card */
+  --left-grad-start: #ffffff;
+  --left-grad-end: #effcff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --border-soft: #e5e7eb;
+}
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* ======================
+   Frame
+   ====================== */
+
+.frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: calc(100vw - 16px);
+  height: calc(100vh - 16px);
+  transform: translate(-50%, -50%);
+  border: 10px solid #2c547f;
+  border-radius: 24px;
+  background: linear-gradient(90deg, var(--left-grad-start), var(--left-grad-end));
+  display: flex;              /* three columns */
+}
+
+/* ======================
+   Left column
+   ====================== */
+
+.left-full {
+  width: 22%;
+  min-width: 260px;
+  height: 100%;
+  padding: 24px 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-shrink: 0;
+}
+
+/* Avatar */
+.avatar-ring {
+  width: 300px;
+  height: 300px;
+  border-radius: 8%;
+  background: transparent;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px auto;
+  box-shadow:none;
+}
+
+
+
+.avatar-inner {
+  width: 400px;
+  height: 330px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  left: 0%;
+ 
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.96);
+}
+
+.avatar-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Name + title */
+.left-name-block {
+  text-align: center;
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.name-pill {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.name-item {
+  font-size: 25px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.title-item {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #6b7280;
+}
+
+/* Socials */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0 10px 0;
+}
+
+.social-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #e0e7ef;
+  box-shadow: 0 2px 6px rgba(30, 58, 138, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9fafb;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.si-linkedin { background: #0a66c2; }
+.si-github  { background: #111827; }
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.5);
+}
+
+/* Contact + references */
+.contact-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #414245;
+}
+
+.contact-info {
+  font-size: 18px;
+  color: #111827;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.5);
+  width: 100%;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ci {
+  width: 16px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.contact-link:link,
+.contact-link:visited {
+  color: #2563eb;              /* blue */
+  text-decoration: underline;  /* clearly clickable */
+  font-weight: 500;
+  cursor: pointer;
+}
+contact-link:hover,
+.contact-link:focus {
+  color: #1d4ed8;
+  text-decoration: none;
+  border-bottom: 1px solid #2563eb;
+}
+
+.reference-section {
+  margin-top: auto;
+  padding-top: 14px;
+  width: 100%;
+}
+
+/* Heading "References" */
+.reference-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+  padding-bottom: 4px;
+}
+
+/* List container */
+.reference-list {
+  list-style: disc;
+  padding-left: 16px;
+  margin: 0;
+  font-size: 15px;
+  color: #111827;
+}
+
+/* Each reference row */
+.reference-list li {
+  margin: 2px 0 !important;
+  line-height: 1.3;
+}
+
+/* Make the whole reference text look like a link */
+.reference-link:link,
+.reference-link:visited {
+  color:#2563eb;              /* blue */
+  text-decoration: underline;  /* clearly clickable */
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Hover / focus effect */
+.reference-link:hover,
+.reference-link:focus {
+  color: #1d4ed8;
+  text-decoration: none;
+  border-bottom: 1px solid #2563eb;
+}
+
+/* Optional active state */
+.reference-link:active {
+  color: #0f172a;
+}
+
+/* ======================
+   Middle column layout
+   ====================== */
+
+.main-area {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* vertical stack: about row, middle row, bottom row */
+.middle-stack {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0px !important;
+}
+
+/* Row 1: About (full width) */
+.middle-row-top {
+  flex: 0.6.0;       /* tallest row */
+  display: flex;
+}
+
+/* Row 2: Experience | Education */
+.middle-row-middle {
+  flex: 1.5;       /* medium height */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px !important;
+}
+
+/* Row 3: Projects | Courses (shorter) */
+.middle-row-bottom {
+  flex: 0.9;       /* shortest row */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+/* Base card for all sections – no outer borders by default */
+.mid-section {
+  width: 100%;
+  height: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: transparent;  /* keep original background */
+  overflow: hidden;
+  border: none;             /* start with no border */
+}
+
+.mid-section-title {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #1f2933;
+}
+
+.mid-section-body {
+  font-size: 20px;
+  line-height: 1.4;
+  overflow-y: auto;
+}
+
+/* 1) About: border-bottom only */
+.middle-row-top > .mid-section {
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+}
+
+/* 2) Experience: border-right only (left cell of middle row) */
+.middle-row-middle > .mid-section:first-child {
+  border-right: 1px solid rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+/* Experience section - matches YOUR JSON fields */
+.exp-entry {
+  margin-bottom: 5px;
+  padding-bottom: 20px;
+  /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
+}
+
+.exp-entry:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.exp-logo {
+  float: right;
+  width: auto;
+  height: 40px;
+  margin-left: 12px;
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.exp-logo img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.exp-header {
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.exp-company {
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  color: #080808 !important;
+  margin-bottom: 2px;
+}
+
+.exp-role {
+  font-size: 20px;
+  color: #676d79;
+  font-weight: 500;
+}
+
+.exp-period {
+  font-size: 20px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.exp-bullets {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+}
+
+.exp-bullets li {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+/* EDUCATION SECTION - with logos + clickable thesis */
+.edu-entry {
+  margin-bottom: 8px;
+  padding-bottom: 20px;
+  /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
+}
+
+.edu-entry:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.edu-logo {
+  float: right;
+  width: auto;
+  height: 40px;
+  margin-left: 12px;
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.edu-logo img {
+  width: auto;
+  height: 100px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.edu-header {
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+.edu-degree {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0px;
+}
+
+.edu-institution {
+  font-size: 20px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.edu-period {
+  font-size: 20px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.edu-details {
+  margin-top: 4px;
+}
+
+.edu-field {
+  font-size: 20px;
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.edu-thesis ul {
+  margin: 4px 0 0 0;
+  padding-left: 16px;
+}
+
+.edu-bullets {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+}
+
+.edu-bullets li {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.5;
+  margin-bottom: 0px;
+}
+
+
+.thesis-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight:0;
+  font-size: 15px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.thesis-link:hover {
+  color: #1d4ed8;
+  border-bottom-color: #2563eb;
+  text-decoration: none;
+}
+
+.edu-notes {
+  font-size: 20px;
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 0px;
+}
+
+
+/* 3) Projects & Courses: border-top on both (bottom row) */
+.middle-row-bottom > .mid-section {
+  border-top: 1px solid rgba(0,0,0,0.18);
+}
+/* Horizontal row of badges */
+.courses-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+/* One badge + text block */
+.course-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Badge background from badge.png */
+.course-badge {
+  width: 190px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+/* Logo inside badge, smaller and centered */
+.course-logo-inside {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 35%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  display: block;
+
+}
+
+/* Text under badge */
+.course-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.3;
+}
+
+.course-year {
+  font-size: 15px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+
+/* 4) Projects: extra border-right (left cell of bottom row) */
+.middle-row-bottom > .mid-section:first-child {
+  border-right: 1px solid rgba(0,0,0,0.18);
+}
+/*Project section*/
+/* Horizontal row of squares */
+.project-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+/* One badge + text block */
+.project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Badge background from badge.png */
+.project-square {
+  width: 190px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*background-color: #f0f0f0;*/
+  border: 1px solid #ccc;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+/* Logo inside badge, smaller and centered */
+.project-logo-inside {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 80%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  display: block;
+
+}
+
+/* Text under badge */
+.project-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.3;
+}
+
+.project-year {
+  font-size: 15px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+
+/* ======================
+   Right column
+   ====================== */
+
+.right-col {
+  width: 28%;
+  max-width: 320px;
+  height: 100%;
+  padding: 24px 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(148,163,184,0.5);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ======================
+   Technical skills
+   ====================== */
+
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill-bar-container {
+  width: 100%;
+  height: 8px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+  border-radius: 4px;
+  transition: width 1.5s ease-in-out;
+}
+
+/* ======================
+   Languages – 3D-like boxes
+   ====================== */
+
+.languages-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Whole row: LEFT name | RIGHT progress */
+.language-box {
+  display: flex;
+  width: 100%;
+  height: 55px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* LEFT: language name */
+.language-name-part {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #facc15;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  border-right: 1px solid #e5e7eb;
+}
+
+/* RIGHT: progress bar */
+.language-progress-part {
+  flex: 2;
+  position: relative;
+  background: #23900829;
+  overflow: hidden;
+}
+
+.language-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #239008, #23900848);
+  transition: width 0.8s ease-in-out;
+}
+
+.language-progress-percent {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  z-index: 2;
+}
+
+/* ======================
+   Experience / Education items
+   ====================== */
+
+.exp-item, .edu-item {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.exp-title, .edu-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.exp-company, .edu-school {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.exp-dates, .edu-dates {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.exp-desc {
+  font-size: 12px;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* ======================
+   Interpersonal skills 2x2 circles
+   ====================== */
+
+.interpersonal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.skill-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 3px solid #fcd34d;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+  transition: all 0.3s ease;
+}
+
+.skill-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.skill-circle:hover {
+  transform: scale(1.05);
+  border-color: #f59e0b;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+}
+
+.skill-circle-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+  text-align: center;
+  margin: 0;
+}
+

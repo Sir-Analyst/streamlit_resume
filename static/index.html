@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sami Kazemi Resume</title>
+  {{INLINE_CSS}}
+</head>
+<body>
+  <div class="frame">
+    <!-- LEFT COLUMN -->
+    <div class="left-full">
+      <div class="avatar-ring">
+        <div class="avatar-white">
+          <div class="avatar-inner">{{IMG_TAG}}</div>
+        </div>
+      </div>
+
+      <div class="left-name-block">
+        <div class="name-pill"><div class="name-item">{{NAME}}</div></div>
+        <div class="title-item">{{TITLE}}</div>
+      </div>
+
+      <div class="social-links">
+        <a href="{{LINKEDIN}}" class="social-icon si-linkedin" target="_blank">in</a>
+        <a href="{{GITHUB}}" class="social-icon si-github" target="_blank">GH</a>
+      </div>
+
+      <div class="contact-info">
+        <!-- Email: clickable mailto -->
+        <div class="contact-row">
+          <span class="ci">✉</span>
+          <a class="contact-link" href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+        </div>
+
+        <!-- Phone: clickable WhatsApp -->
+        <div class="contact-row">
+          <span class="ci">☎</span>
+          <a class="contact-link" href="https://wa.me/{{PHONE_E164}}" target="_blank">
+            {{PHONE}}
+          </a>
+        </div>
+
+        <div class="contact-row"><span class="ci">📍</span>{{LOCATION}}</div>
+        <!-- website: clickable  -->
+        <div class="contact-row">
+          <span class="ci">🌐</span>
+          <a class="contact-link" href="{{WEBSITE}}" target="_blank" rel="noopener noreferrer">
+            {{WEBSITE}}
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="reference-section">
+        <div class="reference-title">References</div>
+        {{REFERENCES}}
+      </div>
+    </div>
+
+    <!-- MIDDLE COLUMN -->
+    <div class="main-area">
+      <div class="middle-stack">
+        <!-- Row 1: About -->
+        <div class="middle-row-top">
+          <section class="mid-section">
+            <div class="mid-section-title">About me</div>
+            <div class="mid-section-body">
+              {{PITCH}}
+            </div>
+          </section>
+        </div>
+
+        <!-- Row 2: Experience | Education -->
+        <div class="middle-row-middle">
+          <section class="mid-section">
+            <div class="mid-section-title">Experience</div>
+            <div class="mid-section-body">
+              {{EXPERIENCE}}
+            </div>
+          </section>
+
+          <section class="mid-section">
+            <div class="mid-section-title">Education</div>
+            <div class="mid-section-body">
+              {{EDUCATION}}
+            </div>
+          </section>
+        </div>
+
+        <!-- Row 3: Projects | Courses (shorter) -->
+        <div class="middle-row-bottom">
+          <section class="mid-section">
+            <div class="mid-section-title">Courses</div>
+            <div class="mid-section-body">
+              {{COURSES}}
+            </div>
+          </section>
+
+          <section class="mid-section">
+            <div class="mid-section-title">Projects</div>
+            <div class="mid-section-body">
+              {{PROJECTS}}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+      <div>
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-section">{{TECHNICAL_SKILLS}}</div>
+      </div>
+
+      <div>
+        <div class="section-title">Interpersonal Skills</div>
+        {{INTERPERSONAL_SKILLS}}
+      </div>
+
+      <div>
+        <div class="section-title">Languages</div>
+        <div class="languages-section">{{LANGUAGES_RIGHT}}</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

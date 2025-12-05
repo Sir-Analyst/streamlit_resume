@@ -1,0 +1,201 @@
+{
+  "name": "SAMI KAZEMI",
+  "title": "Finance & Data Analytics Professional",
+  "pitch": "MSc Finance professional wielding Python, SQL, Tableau & Power BI to decode complex data, sharpen forecasts, and drive revenue decisions through analytical precision and commercial insight.",
+  "contact": {
+    "email": "s.sami.kazemi@gmail.com",
+    "phone": "+358 44 519 5357",
+    "location": "Helsinki, Finland",
+    "linkedin": "https://linkedin.com/in/samikazemi",
+    "github": "https://github.com/Sir-Analyst",
+    "website": "https://sami-resume.streamlit.app/"
+  },
+  "strengths": [
+    "Strategic Thinking",
+    "Analytical Thinking",
+    "Adaptability",
+    "Technical Proficiency"
+  ],
+  "interpersonal_skills": [
+    {"name": "Collaboration", "image": "collaboration.png"},
+    {"name": "Communication", "image": "communication.png"},
+    {"name": "Problem-solving", "image": "problem.png"},
+    {"name": "Attention to Detail", "image": "attention.png"}
+   
+  ],
+  "technical_skills": {
+    "Python": "Pandas, NumPy, Matplotlib, scikit-learn",
+    "SQL": "Data querying and optimization",
+    "Data visualization": "Tableau, Power BI",
+    "Excel": "Advanced Excel with Power Query and VBA",
+    "Web": "HTML, CSS"
+  },
+  "languages": [
+    { "name": "English", "level": "Proficient", "note": "Fluent professional use" },
+    { "name": "Finnish", "level": "Intermediate", "note": "Working proficiency" },
+    { "name": "Persian", "level": "Mother tongue", "note": "Native speaker" }
+  ],
+  "experience": [
+    {
+      "enabled": true,
+      "logo": "accado-logo.png",
+      "role": "Financial Management Assistant",
+      "company": "Accado Oy",
+      "location": "Finland",
+      "period": "10/2017 - 04/2018",
+      "bullets": [
+        "Financial Reports | Workflow Optimization | Trend Analysis"
+      ]
+
+    },
+    {
+      "enabled": true,
+      "logo": "sansox-logo.png",
+      "role": "Balance Sheet and Income Statement Analyst",
+      "company": "SanSox Oy",
+      "location": "Finland",
+      "period": "05/2015 - 11/2015",
+      "bullets": [
+        "Excel Budget Tool | Pricing Strategy | Data Visualization"
+      ]
+
+    },
+    {
+      "enabled": true,
+      "logo": "viikarit-logo.png",
+      "role": "Instructor",
+      "company": "Viikarit Oy",
+      "location": "Finland",
+      "period": "09/2014 - 05/2015",
+      "bullets": [
+        "Academic Mentoring | Activity Planning | Critical Thinking"
+      ]
+
+    },
+    {
+      "enabled": false,
+      "role": "Office Manager & Teacher",
+      "company": "Tebyan-Institute",
+      "location": "Iran",
+      "period": "01/2002 - 02/2004",
+      "bullets": [
+        "Designed and managed training schedules and staff operations for smooth course delivery.",
+        "Delivered beginner to intermediate English language training.",
+        "Taught practical computer skills including MS Office, Adobe Photoshop, and system operations.",
+        "Built client relationships through clear communication and reliable service."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "enabled": true,
+      "logo": "hanken-logo.png",
+      "degree": "MSc in Economics and Business Administration",
+      "field": "General Management",
+      "institution": "Hanken School of Economics",
+      "location": "Finland",
+      "period": "08/2019 - 10/2022",
+      "thesis_title": "Impact of COVID-19 on Earnings Management",
+      "thesis_link":"https://www.researchgate.net/profile/Sayed-Mehdi-Kazemi/publication/375182722_Impact_of_COVID-19_Pandemic_on_Earnings_Management_The_European_Union_Empirical_Evidence_Title_of_thesis_Impact_of_COVID-19_Pandemic_on_Earnings_Management_The_European_Union_Emperical_Evidence/links/6542af730426ef6369f54fad/Impact-of-COVID-19-Pandemic-on-Earnings-Management-The-European-Union-Empirical-Evidence-Title-of-thesis-Impact-of-COVID-19-Pandemic-on-Earnings-Management-The-European-Union-Emperical-Evidence.pdf",
+      "notes": "Specialized in Accounting and Finance."
+    },
+    {
+      "enabled": true,
+      "logo": "haaga_helia-logo.png",
+      "degree": "BSc in International Business",
+      "field": "International Business",
+      "institution": "Haaga-Helia University of Applied Sciences",
+      "location": "Finland",
+      "period": "08/2011 - 12/2015",
+      "thesis_title": "Creating Activity-Based Costing System Tool",
+      "thesis_link":"https://www.theseus.fi/handle/10024/99029",
+      "notes": "Specialized in Financial Management."
+    }
+  ],
+  "courses": [
+    {
+      "enabled": true,
+      "logo": "taitotalo-logo.png",
+      "name": "Advanced Data Analytics",
+      "institute": "Taitotalo (Adult Educational Center)",
+      "location": "Finland",
+      "period": "09/2024 - 04/2025",
+      "category": "Data Analytics"
+    },
+    {
+      "enabled": true,
+      "logo": "rastor-logo.png",
+      "name": "Financial Management",
+      "institute": "Rastor Institute",
+      "location": "Finland",
+      "period": "01/2024 - 03/2024",
+      "category": "Accounting"
+    },
+    {
+      "enabled": true,
+      "logo": "taitotalo-logo.png",
+      "name": "Payroll Management",
+      "institute": "Taitotalo (Adult Educational Center)",
+      "location": "Finland",
+      "period": "04/2019 - 06/2019",
+      "category": "Accounting"
+    },
+    {
+      "enabled": true,
+      "logo": "saranen-logo.png",
+      "name": "e-TalousPro Expert",
+      "institute": "Saranen Consulting Institute",
+      "location": "Finland",
+      "period": "10/2017 - 04/2018",
+      "category": "Accounting"
+    }
+  ],
+  "references": [
+    {
+      "enabled": true,
+      "name": "Benjamin Mohseni",
+      "title": "CEO | Entrepreneur",
+      "email": "Benjamin.mohseni@zarillo.fi"
+    },
+    {
+      "enabled": true,
+      "name": "Francisco Jousi",
+      "title": "Solution Analyst (OP Osuuskunta)",
+      "email": "francisco.jousi@gmail.com"
+    },
+    {
+      "enabled": true,
+      "name": "Dong Pham",
+      "title": "Quality Engineering | Entrepreneur in Testing",
+      "email": "dong@qaraton.com"
+    }
+  ],
+  "projects": [
+    {
+    "enabled": true,
+    "logo": "processing-logo.png",
+    "name": "ML: Image processing",
+    "period": "2024",
+    "link": "https://github.com/Sir-Analyst/image_processing"
+  },
+  {
+    "enabled": true,
+    "logo": "text-logo.png",
+    "name": "NLP: Text Analysis",
+    "period": "2023",
+    "link": "https://github.com/Sir-Analyst/text_analysis."
+  },
+  {
+    "enabled": true,
+    "logo": "association-logo.png",
+    "name": "ML: Association Analysis",
+    "period": "2022",
+    "link": "https://github.com/Sir-Analyst/association_analysis"
+  }
+  ],
+  "meta": {
+    "source": "resume.pdf",
+    "generated_with": "Python + Streamlit resume project",
+    "year": 2025
+  }
+}
