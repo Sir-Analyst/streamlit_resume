@@ -26,7 +26,6 @@ def load_resume() -> dict:
     return {}
 
 
-
 def build_avatar_tag(use_video=False) -> str:
     video_path = IMG_DIR / "video.mp4"
     img_path = IMG_DIR / "pic1.jpg"
@@ -381,9 +380,16 @@ def main():
     # Replace all placeholders
     html_content = html_template
     html_content = html_content.replace("{{INLINE_CSS}}", f"<style>{css}</style>")
+    # step 1 for device friendlyadd viewport meta
+    html_content = html_content.replace(
+    "<head>", 
+    "<head><meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+    )
+    # ---------------------------
     html_content = html_content.replace("{{IMG_TAG}}", avatar_tag)
     html_content = html_content.replace("{{NAME}}", data.get("name", ""))
     html_content = html_content.replace("{{TITLE}}", data.get("title", ""))
+    
     raw_phone = contact.get("phone", "")          # "+358 44 519 5357"
     phone_e164 = "".join(ch for ch in raw_phone if ch.isdigit())  # "358445195357"
 
@@ -409,19 +415,37 @@ def main():
     html_content = html_content.replace("{{LANGUAGES_RIGHT}}", languages_html)
 
     # Streamlit styling
-    st.markdown("""
-    <style>
-    .block-container { padding: 0 !important; margin: 0 !important;
-                       height: 100vh !important; overflow: hidden !important; }
-    .stApp { height: 100vh !important; overflow: hidden !important;
-             background-color: #020617 !important; padding: 0 !important; }
-    iframe { height: 860px !important; width: 100% !important;
-             border: none !important; overflow: hidden !important; }
-    header[data-testid="stHeader"], footer { display: none !important; }
-    </style>
-    """, unsafe_allow_html=True)
+    # st.markdown("""
+    # <style>
+    # .block-container { padding: 0 !important; margin: 0 !important;
+    #                    height: 100vh !important; overflow: hidden !important; }
+    # .stApp { height: 100vh !important; overflow: hidden !important;
+    #          background-color: #020617 !important; padding: 0 !important; }
+    # iframe { height: 860px !important; width: 100% !important;
+    #          border: none !important; overflow: hidden !important; }
+    # header[data-testid="stHeader"], footer { display: none !important; }
+    # </style>
+    # """, unsafe_allow_html=True)
 
-    components.html(html_content, height=860, scrolling=True)
+    # components.html(html_content, height=860, scrolling=False)
+    #step 1 for device friendly: app.py - fix iframe + add viewpor meta
+    st.markdown("""
+        <style>
+        .block-container { padding: 0 !important; margin: 0 !important;
+                        height: 100vh !important; overflow: hidden !important; }
+        .stApp { height: 100vh !important; overflow: hidden !important;
+                background-color: #020617 !important; padding: 0 !important; }
+        iframe { 
+            height: 95vh !important; 
+            width: 100% !important;
+            border: none !important; 
+            overflow: auto !important; 
+        }
+        header[data-testid="stHeader"], footer { display: none !important; }
+        </style>
+        """, unsafe_allow_html=True)
+
+    components.html(html_content, height=1200, scrolling=True)
 
 
 if __name__ == "__main__":

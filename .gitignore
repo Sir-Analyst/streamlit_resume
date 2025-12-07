@@ -59,8 +59,10 @@ logs/
 # data/
 # static/
 # img/
-/archive
-/original
+
+# Don't track backup/archive folders
+archive/
+original/
 img/sample.jpg
 img/saranen1-logo.png
 img/taitotalo1.png
