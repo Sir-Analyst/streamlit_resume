@@ -59,3 +59,16 @@ logs/
 # data/
 # static/
 # img/
+archive/app2.py
+streamlit_resume.py
+/archive
+/original
+img/saranen1-logo.png
+img/sample.jpg
+img/taitotalo1.png
+img/Untitled.paint
+img/zarillo-logo.png
+static/print.html
+test.html
+test.md
+test_app.py
