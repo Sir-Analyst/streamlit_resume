@@ -24,11 +24,11 @@
    
   ],
   "technical_skills": {
-  "Python": 45,
-  "SQL": 25,
-  "Data visualization": 50,
-  "Excel": 85,
-  "Web": 30
+  "Python": "Pandas, NumPy,Matplotlib, scikit-learn",
+  "SQL": "Data queries andoptimization",
+  "Data visualization": "Tableau, Power BI",
+  "Advanced Excel": "PowerQuery,VBA Macros",
+  "Web": "HTML, CSS, Streamlit"
   },
   "languages": [
     { "name": "English", "level": "Proficient", "note": "Fluent professional use" },

@@ -45,25 +45,42 @@ def build_avatar_tag(use_video=False) -> str:
     return "<div style='width:170px;height:170px;background:#3b82f6;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px;color:white;'>SK</div>"
 
 
-def progress_skill_li(name: str, percent: int) -> str:
-    percent_text = f"{percent}%"
+def progress_skill_li(name: str, details: str, tick_html: str) -> str:
+    """One technical skill row: name + tick + description, no percentages."""
     return (
         "<div class='skill-item'>"
-        f"<div class='skill-label'><span>{name}</span><span>{percent_text}</span></div>"
-        f"<div class='skill-bar-container'><div class='skill-bar-fill' style='width: {percent}%;'></div></div>"
+        "<div class='skill-line'>"
+        f"<span class='skill-name'>{name}:</span>"
+        f"<span class='skill-desc-inline'>{details}</span>"
+        f"<span class='skill-tick'>{tick_html}</span>"
+        "</div>"
         "</div>"
     )
 
-
 def dict_to_progress_list(d: dict) -> str:
+    """
+    Render technical skills with ticks instead of bars.
+    Expects JSON like: { "Python": "Pandas, NumPy, ...", ... }.
+    """
+    if not d:
+        return "<p style='text-align:center;color:#6b7280;'>No skills listed</p>"
+
+    tick_path = IMG_DIR / "tick.png"
+    if tick_path.exists():
+        b64 = base64.b64encode(tick_path.read_bytes()).decode("utf-8")
+        tick_html = (
+            f"<img class='skill-tick-img' "
+            f"src='data:image/png;base64,{b64}' alt='✔' />"
+        )
+    else:
+        tick_html = "<span class='skill-tick-fallback'>✔</span>"
+
     html = ""
     for name, value in d.items():
-        try:
-            percent = int(float(value))
-        except (ValueError, TypeError):
-            percent = 85
-        html += progress_skill_li(name, percent)
+        details = str(value)
+        html += progress_skill_li(name, details, tick_html)
     return html
+
 
 
 def interpersonal_skills_to_html(skills) -> str:
