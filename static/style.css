@@ -853,3 +853,81 @@ contact-link:hover,
   margin: 0;
 }
 
+/* ======================
+   Mobile layout overrides
+   ====================== */
+@media (max-width: 768px) {
+
+  /* Let the page scroll and frame grow on mobile only */
+  html, body {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .frame {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
+    border-width: 6px;
+    flex-direction: column;
+  }
+
+  .left-full,
+  .main-area,
+  .right-col {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    border-right: none;
+    border-left: none;
+  }
+
+  .middle-row-middle,
+  .middle-row-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .middle-row-middle > .mid-section:first-child,
+  .middle-row-bottom > .mid-section:first-child {
+    border-right: none;
+  }
+
+  .avatar-ring {
+    width: 200px;
+    height: 200px;
+  }
+
+  .avatar-inner {
+    width: 220px;
+    height: 190px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+    .reference-section {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .reference-title {
+    font-size: 16px;
+  }
+
+  .reference-list {
+    font-size: 12px;
+  }
+
+}
+*/changes completed*/

@@ -63,3 +63,13 @@ logs/
 # Don't track backup/archive folders
 archive/
 original/
+img/sample.jpg
+img/saranen1-logo.png
+img/taitotalo1.png
+img/Untitled.paint
+img/zarillo-logo.png
+static/print.html
+streamlit_resume.py
+test.html
+test.md
+test_app.py
