@@ -421,7 +421,7 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    components.html(html_content, height=860, scrolling=False)
+    components.html(html_content, height=860, scrolling=True)
 
 
 if __name__ == "__main__":
