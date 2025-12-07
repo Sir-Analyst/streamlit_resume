@@ -930,4 +930,46 @@ contact-link:hover,
   }
 
 }
-*/changes completed*/
+/* Mobile layout for Courses & Projects */
+/* Mobile layout for Courses & Projects */
+@media (max-width: 768px) {
+
+  .courses-row,
+  .project-row {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    justify-content: center;
+  }
+
+  .course-item,
+  .project-item {
+    min-width: 100%;
+    max-width: 100%;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .course-badge,
+  .project-square {
+    width: 70%;
+    max-width: 400px;
+    height: 350x;          /* fixed height again so there is a box */
+    overflow: hidden;       /* anything bigger is clipped inside */
+  }
+
+  .course-logo-inside{
+    width: 30%;
+    height: 30%;
+    object-fit: contain;    /* fit inside without distortion */
+    display: block;
+  }
+
+  .course-name,
+  .project-name,
+  .course-year,
+  .project-year {
+    text-align: center;
+  }
+}
+
+/*changes completed*/
