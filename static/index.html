@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Sami Kazemi Resume</title>
-  {{INLINE_CSS}}
+  
 </head>
 <body>
   <div class="frame">
@@ -126,5 +126,49 @@
       </div>
     </div>
   </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.style.opacity = '0';
+    
+    const avatar = document.querySelector('.avatar-ring');
+    if (!avatar) return;
+    
+    // Center avatar
+    avatar.style.cssText = `
+      position: fixed !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      z-index: 99999 !important;
+      width: 280px !important;
+      height: 280px !important;
+      opacity: 0 !important;
+    `;
+    
+    setTimeout(() => {
+      avatar.style.transition = 'all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      avatar.style.transform = 'translate(-50%, -50%) scale(1)';
+      avatar.style.opacity = '1';
+    }, 300);
+    
+    setTimeout(() => {
+      document.documentElement.style.transition = 'opacity 1s';
+      document.documentElement.style.opacity = '1';
+    }, 2000);
+    
+    setTimeout(() => {
+      avatar.style.transition = 'all 0.8s ease';
+      avatar.style.cssText = `
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        z-index: auto !important;
+        width: inherit !important;
+        height: inherit !important;
+      `;
+    }, 3200);
+  });
+  </script>
 </body>
 </html>

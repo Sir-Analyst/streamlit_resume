@@ -354,6 +354,7 @@ def projects_to_html(projects: list) -> str:
 
 
 def main():
+    js_content = read_text(STATIC_DIR / "animations.js")
     html_template = read_text(STATIC_DIR / "index.html")
     css = read_text(STATIC_DIR / "style.css")
 
@@ -396,8 +397,7 @@ def main():
 
     # Replace all placeholders
     html_content = html_template
-    html_content = html_content.replace("{{INLINE_CSS}}", f"<style>{css}</style>")
-    # step 1 for device friendlyadd viewport meta
+    html_content = html_content.replace("{{INLINE_JS}}", f"<script>{js_content}</script>")    # step 1 for device friendlyadd viewport meta
     html_content = html_content.replace(
     "<head>", 
     "<head><meta name='viewport' content='width=device-width, initial-scale=1.0'>"
