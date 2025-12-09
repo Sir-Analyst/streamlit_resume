@@ -21,6 +21,9 @@ Algorithm (CSS):
   --text-main: #111827;
   --text-muted: #6b7280;
   --border-soft: #e5e7eb;
+  --accent-cyan: #22d3ee;
+  --accent-green: #10b981;
+  --glass-bg: rgba(15, 23, 42, 0.7);
 }
 
 /* Reset */
@@ -70,19 +73,14 @@ html, body {
 
 /* Avatar - Perfect Circle with White Background + Gradient Border */
 .avatar-ring {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  padding: 16px;
-  background: 
-    radial-gradient(circle closest-side, transparent 98%, #ec4899 100%),
-    conic-gradient(from 0deg,
-    #10b981,  /* Emerald green */
-    #059669,  /* Forest green */
-    #047857,  /* Deep green */
-    #065f46,  /* Dark green */
-    #10b981   /* Back to emerald */);
-  background-clip: content-box, padding-box;
+  position: relative;   /* required for ::after positioning */
+  left: 0;
+  width: 250px;
+  height: 250px;
+  border-radius: 5%;
+  padding: 5px;
+  background: linear-gradient(#22d3ee, #10b981);
+  box-shadow: 0 0 20px #1a9fb4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +90,7 @@ html, body {
 .avatar-white {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: 5%;
   background: white;
   display: flex;
   align-items: center;
@@ -103,18 +101,35 @@ html, body {
 .avatar-inner {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: 5%;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
-
-
 
 .avatar-inner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+/* SCAN LINE */
+.avatar-ring::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 12px;
+  right: 12px;
+  height: 4px;
+  z-index: 10;         /* ensure it is above background */
+  background: linear-gradient(90deg, transparent, #22d3ee, #10b981, transparent);
+animation: scan-line 1.8s linear infinite;
+  
+}
+
+@keyframes scan-line {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
 }
 
 /* Name + title */
